@@ -1,10 +1,5 @@
-from stats import word_count, chartacter_count, sort_char
+from stats import word_count, chartacter_count, sort_char, get_book_text
 import sys
-def get_book_text (file_path): 
-    with open(file_path) as f:
-        file_contents = f.read()
-    return file_contents
-
 
 def main():
     if len(sys.argv) != 2:
@@ -16,9 +11,9 @@ def main():
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
-    print(f"Found {word_count(get_book_text)} total words")
+    print(f"Found {word_count(book_path)} total words")
     print("--------- Character Count -------")
-    chars = chartacter_count(get_book_text)
+    chars = chartacter_count(book_path)
     for char, count in sort_char(chars):
         if char.isalpha():
             print(f"{char}: {count}")
@@ -27,5 +22,4 @@ def main():
         
     print("============= END ===============")
 
-    
 main()
