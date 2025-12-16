@@ -1,5 +1,5 @@
-def get_book_text (file_path): 
-    with open(file_path) as f:
+def get_book_text (book_path): 
+    with open(book_path) as f:
         file_contents = f.read()
     return file_contents
 
@@ -23,6 +23,6 @@ def chartacter_count(book_path):
 def sort_char(chars):
     sorted_chars = list(chars.items())
     sorted_chars.sort(key=lambda item: item[1], reverse=True)
-
     return sorted_chars
+
 
